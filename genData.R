@@ -4,7 +4,7 @@ genNodes=function(n) {
     nodes=rbind(nodes,data.frame(paste("U",toString(i),sep=""),Sys.time(),
                                  0,0,sample.int(100,1)[1],
                                  stringsAsFactors = FALSE))
-  colnames(nodes)=c("name","time","followers","followings","posts")
+  colnames(nodes)=c("names","time","followers","followings","posts")
   return(nodes)
 }
 
@@ -27,7 +27,6 @@ genLinks=function(nodes) {
 
           nodes$followers[j]=nodes$followers[j]+1
           nodes$followings[i]=nodes$followings[i]+1
-          print(class(nodes$posts[i]))
           nodes$posts[[i]]=nodes$posts[[i]]+newLink[[4]]+newLink[[5]]
           
 
